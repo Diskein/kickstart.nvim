@@ -938,6 +938,12 @@ require('lazy').setup({
 
       -- ... and there is more!
       --  Check out: https://github.com/echasnovski/mini.nvim
+
+      -- two letters jumps like in helix
+      require('mini.jump2d').setup { mappings = { start_jumping = 'gj' } }
+
+      -- too see how it was changed and who changed it
+      require('mini.git').setup()
     end,
   },
   { -- Highlight, edit, and navigate code
