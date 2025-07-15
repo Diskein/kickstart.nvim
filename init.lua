@@ -941,7 +941,13 @@ require('lazy').setup({
       --  Check out: https://github.com/echasnovski/mini.nvim
 
       -- two letters jumps like in helix
-      require('mini.jump2d').setup { mappings = { start_jumping = 'gj' } }
+      require('mini.jump2d').setup {
+        mappings = { start_jumping = 'gj' },
+        view = { n_steps_ahead = 3 },
+        allowed_lines = { blank = false, cursor_at = false },
+        allowed_windows = { not_current = false },
+        labels = 'asdfghjklweozxcv',
+      }
 
       -- too see how it was changed and who changed it
       require('mini.git').setup()
@@ -1030,6 +1036,8 @@ require('lazy').setup({
     },
   },
 })
+
+MiniJump2d.config.spotter = MiniJump2d.gen_spotter.pattern '[&*[(.]?[A-z]+[%s]?'
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
