@@ -1073,7 +1073,18 @@ require('lazy').setup({
     ---@module "fzf-lua"
     ---@type fzf-lua.Config|{}
     ---@diagnostic disable: missing-fields
-    opts = {},
+    opts = {
+      -- This is relevant for ClickHouse since the database is huge
+      file_ignore_patterns = {
+        'contrib/',
+        'ci/',
+        'build*/',
+        'utils/',
+        'docs/',
+        'packages/',
+        'tmp/',
+      },
+    },
     ---@diagnostic enable: missing-fields
     keys = {
       { '<leader>sf', '<cmd>FzfLua files<cr>', desc = 'Fzf Files' },
